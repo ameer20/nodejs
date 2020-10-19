@@ -26,6 +26,12 @@ app.get("/url", (request , response) => {
     cars.push(body.name);
     response.status(204).send({ name: body.name });
   });
+  app.delete("/car/:id",function(request ,response){
+     const { id } = request.params;
+      cars.splice(id, 1);
+     response.send({name :cars})
+
+  });
   
 
 app.listen(3000,() => {console.log(`server running on port ${PORT}`)
